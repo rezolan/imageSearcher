@@ -20,6 +20,8 @@ class App extends Component {
 				})
 
 			client.search(searchQuery, {size: 'medium'});
+		} else{
+  		this.setState({searchImages: []});
 		}
 
 	}
