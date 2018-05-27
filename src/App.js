@@ -10,15 +10,18 @@ class App extends Component {
 	}
 	startSearch() {
   	const searchQuery = this.refs.searchQuery.value;
-		client.search(searchQuery)
-			.then(images => {
-				this.setState({searchImages: [...images], error: null});
-			})
-			.catch(error => {
-				console.log(error);
-			})
+  	if(searchQuery.trim() !== ''){
+			client.search(searchQuery)
+				.then(images => {
+					this.setState({searchImages: [...images], error: null});
+				})
+				.catch(error => {
+					console.log(error);
+				})
 
-		client.search(searchQuery, {size: 'medium'});
+			client.search(searchQuery, {size: 'medium'});
+		}
+
 	}
   render() {
     return (
